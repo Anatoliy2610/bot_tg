@@ -13,3 +13,6 @@ app = FastAPI()
 app.include_router(users_router)
 app.include_router(posts_router)
 
+@app.get('/')
+def main():
+    return {'Hi': 'hey!'}
