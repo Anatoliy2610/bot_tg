@@ -1,10 +1,8 @@
 from fastapi import FastAPI
 
-from app.users.router import router as users_router
+from app.database import Base, engine
 from app.posts.router import router as posts_router
-from app.database import Base, engine, SessionLocal
-
-
+from app.users.router import router as users_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -12,7 +10,3 @@ app = FastAPI()
 
 app.include_router(users_router)
 app.include_router(posts_router)
-
-@app.get('/')
-def main():
-    return {'Hi': 'hey!'}

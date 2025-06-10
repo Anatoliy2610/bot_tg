@@ -1,17 +1,12 @@
-from dotenv import load_dotenv
 import os
 
-from telegram import Update
-from telegram.ext import CommandHandler, CallbackQueryHandler
-
-from app.posts.models import PostModel
-
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from dotenv import load_dotenv
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram.ext import (ApplicationBuilder, CallbackQueryHandler,
+                          CommandHandler, ContextTypes)
 
 from app.database import SessionLocal
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-
+from app.posts.models import PostModel
 
 load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')

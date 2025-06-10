@@ -5,3 +5,4 @@ __pycache__
 *.cast
 .env
 test.db
+.ruff_cache

@@ -2,7 +2,6 @@ from datetime import datetime, timezone
 
 import jwt
 from fastapi import HTTPException, status
-# from jose import JWTError
 from sqlalchemy.orm import Session
 
 from app.users.auth import get_auth_data

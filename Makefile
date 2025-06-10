@@ -7,11 +7,11 @@ freeze:
 run:
 	uvicorn app.main:app --reload
 
+bot:
+	python3 bot.py
+
 migrate:
 	alembic revision --autogenerate -m "Initial migration"
-
-test:
-	pytest -v
 
 check:
 	ruff check
