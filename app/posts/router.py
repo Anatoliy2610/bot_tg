@@ -30,7 +30,7 @@ def add_to_post(data_post: PostAdd, db: Session = Depends(get_db)):
             db=db,
         )
     except ValueError as e:
-        raise HTTPException(status_code=401, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
     return {
         "Добавлен пост": {
             "title": data_post.title,
@@ -55,7 +55,7 @@ def update_post(
             db=db,
         )
     except ValueError as e:
-        raise HTTPException(status_code=401, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
     return {"Изменен пост": data_post.title}
 
 
@@ -65,5 +65,5 @@ def delete_to_post(data_post: PostDelete, db: Session = Depends(get_db)):
         get_check_post_in_db(title=data_post.title, db=db)
         delete_to_db(title=data_post.title, db=db)
     except ValueError as e:
-        raise HTTPException(status_code=401, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
     return {"Удален пост": data_post.title}
