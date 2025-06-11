@@ -33,7 +33,6 @@ async def get_posts(update: Update, context: ContextTypes.DEFAULT_TYPE):
             row.append(InlineKeyboardButton(posts[i + 1].title, callback_data=str(posts[i + 1].id)))
         keyboard.append(row)
     reply_markup = InlineKeyboardMarkup(keyboard)
-    # await update.message.reply_text("Все посты:", reply_markup=reply_markup)
     if update.message:
         await update.message.reply_text("Все посты:", reply_markup=reply_markup)
     else:
@@ -66,4 +65,3 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler('posts', get_posts))
     application.add_handler(CallbackQueryHandler(handler))
     application.run_polling()
-
